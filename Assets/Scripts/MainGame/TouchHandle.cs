@@ -1,5 +1,3 @@
-
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +14,6 @@ public class TouchHandle : MonoBehaviour
     private void Start()
     {
         ui = GameObject.FindGameObjectsWithTag("Interface");
-
     }
     private void Awake()
     {
@@ -49,11 +46,11 @@ public class TouchHandle : MonoBehaviour
             Vector3[] v = new Vector3[4];
             rt.GetWorldCorners(v);
 
-            Debug.Log("World Corners");
-            for (var j = 0; j < 4; j++)
-            {
-                Debug.Log("World Corner " + j + " : " + v[j]);
-            }
+            //Debug.Log("World Corners");
+            //for (var j = 0; j < 4; j++)
+            //{
+            //    Debug.Log("World Corner " + j + " : " + v[j]);
+            //}
 
             Vector2 touchPosition = touchPositionAction.ReadValue<Vector2>();
 
@@ -63,7 +60,6 @@ public class TouchHandle : MonoBehaviour
             if (v[0].x < touchPosition.x && v[2].x > touchPosition.x && v[0].y < touchPosition.y && v[2].y > touchPosition.y)
             {
                 isUI = true;
-                print("YOU TOUCHED ME");
             }
 
          
@@ -73,8 +69,7 @@ public class TouchHandle : MonoBehaviour
         if(!isUI) { 
             Score.IncScore();
             Counter.GenerateCounter();
-
-        }
+        } 
 
 
     }

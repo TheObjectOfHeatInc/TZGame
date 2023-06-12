@@ -20,11 +20,21 @@ public class Score : MonoBehaviour
     // Как сделать так, чтобы обновление происходило по требованию а не каждый тик?
     private void Update()
     {
-        scoreText.text = $"TEST SCORE : {score}$";
+        scoreText.text = $"SLAVE SCORE : {score}$";
     }
     public static void IncScore()
     {
         score += inc;
+    }
+
+    public static void updateInc(int price) {
+        if (price > score) return;
+
+        inc += price/10;
+        score -= price; 
+
+
+
     }
 
 }
