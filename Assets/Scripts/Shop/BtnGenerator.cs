@@ -38,10 +38,8 @@ class Btn
     public GameObject Generate(GameObject gameObject)
     {
         btnObject = new GameObject(btnName);
-        
         btnObject.transform.SetParent(gameObject.transform, false);
         btn = btnObject.AddComponent<Button>();
-
 
         txtObject = new GameObject();
         txtObject.transform.SetParent(btnObject.transform, false);
@@ -55,7 +53,7 @@ class Btn
         txt.color = Color.black;
         
 
-        txtObject.SetActive(true);
+        btnObject.SetActive(true);  
 
         btn.onClick.AddListener(() => Score.updateInc(price));
 
