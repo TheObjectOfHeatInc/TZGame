@@ -20,11 +20,12 @@ public class BtnGenerator : MonoBehaviour
 // Класс отвечает за генерацию кнопки
 class Btn
 {
-    private GameObject btnObject;
-    private Button btn;
+    private GameObject buttonObject;
+    private Button button;
+    private Image buttonImage;
 
-    private GameObject txtObject;
-    private TextMeshPro txt;
+    private GameObject textObject;
+    private TextMeshProUGUI text;
 
     public readonly string btnName;
     public readonly int price;
@@ -37,27 +38,31 @@ class Btn
     }
     public GameObject Generate(GameObject gameObject)
     {
-        btnObject = new GameObject(btnName);
-        btnObject.transform.SetParent(gameObject.transform, false);
-        btn = btnObject.AddComponent<Button>();
+        buttonObject = new GameObject(btnName);
+        buttonObject.transform.SetParent(gameObject.transform, false);
+        button = buttonObject.AddComponent<Button>();
+        buttonImage = buttonObject.AddComponent<Image>();
 
-        txtObject = new GameObject();
-        txtObject.transform.SetParent(btnObject.transform, false);
-        txt = txtObject.AddComponent<TextMeshPro>();
+        textObject = new GameObject();
+        textObject.transform.SetParent(buttonObject.transform, false);
+        text = textObject.AddComponent<TextMeshProUGUI>();
 
-        txt.text = $"{btnName} {price}";
-        txt.alignment = TextAlignmentOptions.Center;
-        txt.overflowMode = TextOverflowModes.Overflow;
-        txt.fontStyle = FontStyles.Bold;
-        txt.rectTransform.sizeDelta = new Vector2(800, 150);
-        txt.color = Color.black;
+        text.text = $"{btnName} {price}";
+        text.alignment = TextAlignmentOptions.Center;
+        text.autoSizeTextContainer = true;
+        text.fontSize = 78f;
+        
+        text.overflowMode = TextOverflowModes.Overflow;
+        text.fontStyle = FontStyles.Bold;
+        text.rectTransform.sizeDelta = new Vector2(800, 150);
+        text.color = Color.black;
         
 
-        btnObject.SetActive(true);  
+        buttonObject.SetActive(true);  
 
-        btn.onClick.AddListener(() => Score.updateInc(price));
+        button.onClick.AddListener(() => Score.updateInc(price));
 
-        return btnObject;
+        return buttonObject;
     }
 }
 
