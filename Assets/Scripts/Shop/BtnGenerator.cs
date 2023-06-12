@@ -53,7 +53,9 @@ class Btn
         txt.fontStyle = FontStyles.Bold;
         txt.rectTransform.sizeDelta = new Vector2(800, 150);
         txt.color = Color.black;
-        txt.fontSize = 48f;
+        
+
+        txtObject.SetActive(true);
 
         btn.onClick.AddListener(() => Score.updateInc(price));
 

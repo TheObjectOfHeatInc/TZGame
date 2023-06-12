@@ -35,9 +35,9 @@ public class Counter : MonoBehaviour
 
         text.text = $"THE MASTER GAVE U {Score.inc} BUCKS";
 
-        Vector3 position = coin.transform.localPosition;
+        Vector3 position = coin.transform.position;
 
-        text.transform.localPosition = position;
+        text.transform.position = position;
 
         text.rectTransform.sizeDelta = new Vector2(800, 150);
         text.color = Color.black;
